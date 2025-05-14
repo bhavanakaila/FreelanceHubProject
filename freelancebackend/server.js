@@ -3,7 +3,7 @@
     const exp=require('express');
     const app=exp();
 
-    // const cors=require('cors');
+    const cors=require('cors');
     // app.use(cors({
     //     origin:'http://localhost:5173'
     // }))
@@ -23,8 +23,10 @@
     //     credentials: true
     //   }));
     app.use(cors({
-        origin: ['http://localhost:5173', 'https://freelance-hub-project.vercel.app']
+        origin: ['http://localhost:5173', 'https://freelance-hub-project.vercel.app'],
+        credentials: true
     }));
+    
 
     require('dotenv').config()  //process.env.SECRET__KEY
     //import MongoClient
