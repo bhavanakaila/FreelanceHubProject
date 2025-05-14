@@ -7,22 +7,24 @@
     // app.use(cors({
     //     origin:'http://localhost:5173'
     // }))
-    const allowedOrigins = [
-        'http://localhost:5173',
-        'https://freelance-hub-project.vercel.app',
-      ];
+    // const allowedOrigins = [
+    //     'http://localhost:5173',
+    //     'https://freelance-hub-project.vercel.app',
+    //   ];
       
-      app.use(cors({
-        origin: function (origin, callback) {
-          if (!origin || allowedOrigins.includes(origin)) {
-            callback(null, true);
-          } else {
-            callback(new Error('CORS policy violation'));
-          }
-        },
-        credentials: true
-      }));
-      
+    //   app.use(cors({
+    //     origin: function (origin, callback) {
+    //       if (!origin || allowedOrigins.includes(origin)) {
+    //         callback(null, true);
+    //       } else {
+    //         callback(new Error('CORS policy violation'));
+    //       }
+    //     },
+    //     credentials: true
+    //   }));
+    app.use(cors({
+        origin: ['http://localhost:5173', 'https://freelance-hub-project.vercel.app']
+    }));
 
     require('dotenv').config()  //process.env.SECRET__KEY
     //import MongoClient
