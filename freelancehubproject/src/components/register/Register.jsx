@@ -60,8 +60,8 @@ function Register() {
       try {
         // Fetch employer and freelancer lists
         const [employerResponse, freelancerResponse] = await Promise.all([
-          fetch('http://localhost:4000/employers-Api/employer'),
-          fetch('http://localhost:4000/freelancers-Api/freelancer')
+          fetch('https://freelancehubproject.onrender.com/employers-Api/employer'),
+          fetch('https://freelancehubproject.onrender.com/freelancers-Api/freelancer')
         ]);
 
         const employersData = await employerResponse.json();
@@ -80,8 +80,8 @@ function Register() {
         const newUser = { fullName, email, mobileNumber, password, userType };
         await fetch(
           userType === 'Employer'
-            ? 'http://localhost:4000/employers-Api/register'
-            : 'http://localhost:4000/freelancers-Api/register',
+            ? 'https://freelancehubproject.onrender.com/employers-Api/register'
+            : 'https://freelancehubproject.onrender.com/freelancers-Api/register',
           {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },

@@ -36,7 +36,7 @@ const onSubmitProfile = async (data) => {
     return;
   }
   try {
-    const response = await fetch(`http://localhost:4000/freelancers-Api/freelancer/${currentFreelancer._id}/editProfile`, { 
+    const response = await fetch(`https://freelancehubproject.onrender.com/freelancers-Api/freelancer/${currentFreelancer._id}/editProfile`, { 
       method: "PUT",
       headers: { "Content-Type": "application/json",Authorization: `Bearer ${sessionStorage.getItem('token')}` },
       body: JSON.stringify(data),
@@ -116,7 +116,7 @@ const onSubmitProfile = async (data) => {
       };
   
       //  Fetch employer data
-      const response = await fetch(`http://localhost:4000/freelancers-Api/freelancer/${proposalData.fullName}/application/${proposalData.jobId}`,{
+      const response = await fetch(`https://freelancehubproject.onrender.com/freelancers-Api/freelancer/${proposalData.fullName}/application/${proposalData.jobId}`,{
         method:"PUT",
         headers: { "Content-Type": "application/json" },
       body: JSON.stringify(proposalData)
@@ -146,7 +146,7 @@ const onSubmitProfile = async (data) => {
   useEffect(() => {
     const fetchAppliedJobs = async () => {
       try {
-        const response = await fetch(`http://localhost:4000/freelancers-Api/freelancer/${currentFreelancer.fullName}/appliedJobs`);
+        const response = await fetch(`https://freelancehubproject.onrender.com/freelancers-Api/freelancer/${currentFreelancer.fullName}/appliedJobs`);
         const data = await response.json();
   
         if (data.appliedJobs) {
@@ -179,7 +179,7 @@ async function details(freelancerData) {
           description: freelancerData.description,
           availability: freelancerData.availability
       };
-      const res = await fetch(`http://localhost:4000/freelancers-Api/freelancer/${freelancerData.fullName}/uploadProfile`, {
+      const res = await fetch(`https://freelancehubproject.onrender.com/freelancers-Api/freelancer/${freelancerData.fullName}/uploadProfile`, {
           method: "PUT",
           headers: {
               "Content-Type": "application/json",
@@ -212,7 +212,7 @@ async function details(freelancerData) {
   
   const deleteProfile = async () => {
     try {
-      let res = await fetch(`http://localhost:4000/freelancers-Api/freelancer/${currentFreelancer._id}/deleteProfile`,{
+      let res = await fetch(`https://freelancehubproject.onrender.com/freelancers-Api/freelancer/${currentFreelancer._id}/deleteProfile`,{
         method:"DELETE"
       });
       let data = await res.json();

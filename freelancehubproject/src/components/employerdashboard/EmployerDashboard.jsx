@@ -96,7 +96,7 @@ function EmployerDashboard() {
   const [applications, setApplications] = useState([]);
 
   async function jobListing(jobdetails) {
-    let res = await fetch(`http://localhost:4000/employers-Api/employer/${currentEmployer.fullName}/joblisting`, { 
+    let res = await fetch(`https://freelancehubproject.onrender.com/employers-Api/employer/${currentEmployer.fullName}/joblisting`, { 
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(jobdetails),
@@ -109,7 +109,7 @@ function EmployerDashboard() {
   }
   const fetchJobListings = async () => {
     try {
-      const res = await fetch(`http://localhost:4000/employers-Api/employer/${currentEmployer._id}/getJobListing`, {
+      const res = await fetch(`https://freelancehubproject.onrender.com/employers-Api/employer/${currentEmployer._id}/getJobListing`, {
         method: "GET",
         headers: {
           Authorization: `Bearer ${sessionStorage.getItem('token')}`,
@@ -137,7 +137,7 @@ function EmployerDashboard() {
 useEffect(() => {
   const fetchApplications = async () => {
     try {
-      const res = await fetch(`http://localhost:4000/employers-Api/employer/${currentEmployer.fullName}/applications`);
+      const res = await fetch(`https://freelancehubproject.onrender.com/employers-Api/employer/${currentEmployer.fullName}/applications`);
 
       if (!res.ok) {
         throw new Error(`HTTP error! Status: ${res.status}`);
@@ -183,7 +183,7 @@ useEffect(() => {
 
   const deleteJob = async (jobId) => {
     try {
-      let res = await fetch(`http://localhost:4000/employers-Api/employer/${currentEmployer.fullName}/joblisting/${jobId}`, {
+      let res = await fetch(`https://freelancehubproject.onrender.com/employers-Api/employer/${currentEmployer.fullName}/joblisting/${jobId}`, {
         method: "DELETE",
       });
   
@@ -201,7 +201,7 @@ useEffect(() => {
   const handleUpdateApplicationStatus = async (jobId, freelancerName, status) => {
     try {
       console.log(jobId, freelancerName, status);
-      const response = await fetch(`http://localhost:4000/employers-Api/employer/updateStatus`, {
+      const response = await fetch(`https://freelancehubproject.onrender.com/employers-Api/employer/updateStatus`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",

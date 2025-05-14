@@ -13,7 +13,7 @@ function FreelancerLoginStore({ children }) {
       async function loginFreelancer(userCred) {
         
         try {
-          let res = await fetch(`http://localhost:4000/freelancers-Api/login`, {
+          let res = await fetch(`https://freelancehubproject.onrender.com/freelancers-Api/login`, {
             method: "POST",
             headers: { "Content-type": "application/json" },
             body: JSON.stringify(userCred),
@@ -52,7 +52,7 @@ function FreelancerLoginStore({ children }) {
       }
       async function fetchUsers() {
         try {
-            const res = await fetch("http://localhost:4000/freelancers-Api/profileList");
+            const res = await fetch("https://freelancehubproject.onrender.com/freelancers-Api/profileList");
             if (res.status !== 200) {
                 throw new Error(`HTTP error! Status: ${res.status}`);
             }

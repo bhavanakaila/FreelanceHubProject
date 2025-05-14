@@ -15,7 +15,7 @@ function EmployerLoginStore({ children }) {
   async function loginEmployer(userCred) {
     console.log("users",userCred)
     try {
-      let res = await fetch(`http://localhost:4000/employers-Api/login`, {
+      let res = await fetch(`https://freelancehubproject.onrender.com/employers-Api/login`, {
         method: "POST",
         headers: { "Content-type": "application/json" },
         body: JSON.stringify(userCred),
@@ -50,7 +50,7 @@ function EmployerLoginStore({ children }) {
  
   async function jobLists() {
     try {
-        let res = await fetch("http://localhost:4000/employers-Api/employers/getAllJobListings");
+        let res = await fetch("https://freelancehubproject.onrender.com/employers-Api/employers/getAllJobListings");
 
         let jobListsRes = await res.json();
         if (jobListsRes.message === "All job listings fetched successfully!") {
